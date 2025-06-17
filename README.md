@@ -10,7 +10,8 @@ script installs dependencies inside `noir-app` and copies the final `dist`
 folder to the repository root. Cloudflare Pages can use this default build
 command and automatically deploy the generated `dist` directory.
 Without building first you may just see raw text instead of the animated site.
-The landing page shows a spinning can backlit so its outline is visible. The can fades to black as a bold white “O” symbol spins with a moving dash. After the loading sequence the page cracks open to reveal a dusty rainbow marble background with loot-box plan cards in front. Plan data is sourced from `public/data/flavors.json` and a feedback form stores submissions locally.
+The landing page now simply displays a rotating "Ø" symbol (an "O" with a slash) in the center of the screen.
+The older prototype with the can intro and cracking marble effect has been removed for simplicity, but you can still explore the legacy files under `public/` if needed.
 
 The legacy static prototype still exists in `public/` for reference, including `admin.html` for editing the plan configuration (password `noir`).
 Each plan page reads from the same JSON file, so you can update product info without touching the HTML.
