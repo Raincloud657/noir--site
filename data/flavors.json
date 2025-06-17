@@ -1,0 +1,16 @@
+{
+  "plans": [
+    {
+      "title": "It’s Just Water",
+      "description": "4 cans/week of pure water, subscription model."
+    },
+    {
+      "title": "Signature Flavors",
+      "description": "4 cans/week of best-selling flavors, rotating seasonally."
+    },
+    {
+      "title": "Experimental Flavors",
+      "description": "4 cans/week, 3 known, 1 new. Includes feedback form link."
+    }
+  ]
+}
