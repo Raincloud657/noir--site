@@ -4,13 +4,11 @@ const { motion } = window['framer-motion'];
 function CanAnimation({ onEnd }) {
   const [phase, setPhase] = useState('can');
 
-  // after a short spin, switch to the loading symbol
   useEffect(() => {
     const timer = setTimeout(() => setPhase('symbol'), 3000);
     return () => clearTimeout(timer);
   }, []);
 
-  // notify parent when the symbol appears
   useEffect(() => {
     if (phase === 'symbol' && onEnd) {
       const t = setTimeout(onEnd, 1000);
@@ -37,7 +35,7 @@ function CanAnimation({ onEnd }) {
             className: 'text-white text-7xl',
             animate: { rotate: 360 },
             transition: { duration: 4, repeat: Infinity, ease: 'linear' }
-          }, 'O'),
+          }, 'ø'),
           React.createElement(motion.div, {
             className: 'absolute bg-white',
             style: { width: '80%', height: '4px' },
@@ -70,6 +68,7 @@ function Plans({ plans }) {
 function FeedbackForm() {
   const [name, setName] = useState('');
   const [notes, setNotes] = useState('');
+
   const save = () => {
     const items = JSON.parse(localStorage.getItem('feedback') || '[]');
     items.push({ name, notes, date: new Date().toISOString() });
@@ -78,17 +77,20 @@ function FeedbackForm() {
     setNotes('');
     alert('Feedback saved locally.');
   };
+
   return (
     React.createElement('div', { className: 'p-6 space-y-4 max-w-md mx-auto' },
       React.createElement('h2', { className: 'text-2xl font-semibold mb-2' }, 'Experimental Feedback'),
       React.createElement('input', {
         className: 'w-full p-2 text-black rounded',
-        placeholder: 'Name', value: name,
+        placeholder: 'Name',
+        value: name,
         onChange: e => setName(e.target.value)
       }),
       React.createElement('textarea', {
         className: 'w-full h-32 text-black rounded p-2',
-        placeholder: 'Comments', value: notes,
+        placeholder: 'Comments',
+        value: notes,
         onChange: e => setNotes(e.target.value)
       }),
       React.createElement('button', {
@@ -102,16 +104,18 @@ function FeedbackForm() {
 function App() {
   const [plans, setPlans] = useState([]);
   const [showPlans, setShowPlans] = useState(false);
+
   useEffect(() => {
     fetch('data/flavors.json')
       .then(res => res.json())
       .then(data => setPlans(data.plans));
   }, []);
+
   return (
     React.createElement('div', null,
       React.createElement(CanAnimation, { onEnd: () => setShowPlans(true) }),
       showPlans && React.createElement(Plans, { plans }),
-      React.createElement('div', { id: 'feedback' },
+      showPlans && React.createElement('div', { id: 'feedback' },
         React.createElement(FeedbackForm, null)
       )
     )
