@@ -31,7 +31,38 @@ function CanAnimation({ onEnd }) {
     React.createElement('div', { className: 'flex items-center justify-center h-screen bg-black' },
  main
       phase === 'can' ?
+            className: 'w-40 h-40 md:w-48 md:h-48 bg-black/60 border border-gray-600 shadow-inner backdrop-blur-sm flex items-center justify-center hover:shadow-xl transition'
+function CrackedReveal({ children }) {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 500);
+    return () => clearTimeout(t);
+  }, []);
+  return (
+    React.createElement('div', { className: 'relative min-h-screen overflow-hidden bg-black text-white flex items-center justify-center' },
+      !visible && React.createElement(motion.div, {
+        className: 'absolute inset-0 bg-black',
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        transition: { duration: 1 }
+      }),
+      visible && React.createElement(React.Fragment, null,
         React.createElement(motion.div, {
+          className: 'absolute inset-0 marble-bg',
+          initial: { opacity: 0 },
+          animate: { opacity: 0.6 },
+          transition: { duration: 1 }
+        }),
+        React.createElement('svg', { className: 'absolute inset-0 w-full h-full pointer-events-none crack-lines', viewBox: '0 0 100 100', preserveAspectRatio: 'none' },
+          React.createElement('path', { d: 'M0 50 L20 48 L50 60 L80 55 L100 58' }),
+          React.createElement('path', { d: 'M50 0 L52 20 L48 40 L52 60 L50 80 L55 100' })
+        ),
+        React.createElement('div', { className: 'relative z-10 w-full' }, children)
+      )
+    )
+  );
+}
+
           initial: { rotate: 0, opacity: 0 },
           animate: { rotate: 360, opacity: [1, 1, 0] },
           transition: { duration: 3 },
@@ -100,11 +131,13 @@ function PlanDetail({ slug }) {
   }
   return (
     React.createElement('div', { className: 'p-6 space-y-4 max-w-xl mx-auto' },
-      React.createElement('h1', { className: 'text-3xl font-bold text-center' }, plan.title),
-      React.createElement('p', { className: 'italic' }, plan.boxAppearance),
-      React.createElement('p', null, plan.aura),
-      React.createElement('p', null, plan.description),
-      React.createElement('p', { className: 'font-semibold' }, plan.price),
+  const [phase, setPhase] = useState('loading');
+      phase === 'loading' && React.createElement(CanAnimation, { onEnd: () => setPhase('crack') }),
+      phase === 'crack' && React.createElement(CrackedReveal, null,
+        React.createElement(React.Fragment, null,
+          React.createElement(Plans, { plans }),
+          React.createElement('div', { id: 'feedback' }, React.createElement(FeedbackForm))
+        )
       React.createElement('a', { href: 'index.html', className: 'underline block text-center' }, 'Back')
     )
   );

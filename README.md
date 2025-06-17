@@ -1,6 +1,6 @@
 # Noir Site
 
- oxh74b-codex/create-production-ready-react-website-for-noir
+Run `npm install` in `noir-app` and then `npm run dev` for development or `npm run build` to produce static files under `noir-app/dist`. The landing page shows a short can animation that fades to black before the page cracks open to reveal a dusty rainbow marble background. The loot-box plan cards sit in front of the cracks. Plan data is sourced from `public/data/flavors.json` and a feedback form stores submissions locally.
 This repo contains a React + Tailwind CSS web app for the Noir luxury water brand. The app was bootstrapped with Vite and lives in the `noir-app` folder.
 
 ## Usage
