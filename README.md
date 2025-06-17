@@ -4,7 +4,7 @@ This repo contains a lightweight React + Tailwind CSS prototype for the Noir lux
 
 ## Usage
 
-Open `public/index.html` in a browser with internet access. The landing page now features a spinning can animation that drops to reveal a stylised `ø`. Plan cards are loaded from `data/flavors.json` (served from the `public` folder) and a small feedback form stores submissions in `localStorage`.
+Open `public/index.html` in a browser with internet access. The landing page now starts with a placeholder can that spins briefly then fades into the black background. A white `O` with a floating dash appears and animates while the rest of the site loads. Plan cards are pulled from `data/flavors.json` (served from the `public` folder) and a small feedback form stores submissions in `localStorage`.
 
 `public/admin.html` exposes a password protected dashboard (password `noir`). The editor lets you modify the JSON configuration and saves it to `localStorage`.
 

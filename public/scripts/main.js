@@ -2,25 +2,49 @@ const { useState, useEffect } = React;
 const { motion } = window['framer-motion'];
 
 function CanAnimation({ onEnd }) {
-  const [showSymbol, setShowSymbol] = useState(false);
+  const [phase, setPhase] = useState('can');
+
+  // after a short spin, switch to the loading symbol
+  useEffect(() => {
+    const timer = setTimeout(() => setPhase('symbol'), 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // notify parent when the symbol appears
+  useEffect(() => {
+    if (phase === 'symbol' && onEnd) {
+      const t = setTimeout(onEnd, 1000);
+      return () => clearTimeout(t);
+    }
+  }, [phase, onEnd]);
+
   return (
-    React.createElement('div', { className: 'flex items-center justify-center h-screen' },
-      showSymbol ?
+    React.createElement('div', { className: 'flex items-center justify-center h-screen bg-black' },
+      phase === 'can' ?
         React.createElement(motion.div, {
-          initial: { rotate: -180, opacity: 0 },
-          animate: { rotate: 0, opacity: 1 },
-          transition: { duration: 1 },
-          className: 'text-6xl gold'
-        }, 'ø') :
-        React.createElement(motion.img, {
-          src: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=200&q=80',
-          alt: 'Noir can',
           initial: { rotate: 0, opacity: 0 },
-          animate: { rotate: 360, opacity: 1, y: [0, 40] },
-          transition: { duration: 4 },
-          onAnimationComplete: () => { setShowSymbol(true); onEnd && onEnd(); },
-          className: 'w-32 h-64 object-cover rounded-lg shadow-2xl border border-gray-700'
-        })
+          animate: { rotate: 360, opacity: [1, 1, 0] },
+          transition: { duration: 3 },
+          className: 'w-32 h-64 bg-gray-700 rounded-lg shadow-2xl'
+        }) :
+        React.createElement(motion.div, {
+          className: 'relative w-40 h-40 flex items-center justify-center',
+          initial: { opacity: 0 },
+          animate: { opacity: 1 },
+          transition: { duration: 1 }
+        },
+          React.createElement(motion.div, {
+            className: 'text-white text-7xl',
+            animate: { rotate: 360 },
+            transition: { duration: 4, repeat: Infinity, ease: 'linear' }
+          }, 'O'),
+          React.createElement(motion.div, {
+            className: 'absolute bg-white',
+            style: { width: '80%', height: '4px' },
+            animate: { x: ['-50%', '50%', '-50%'] },
+            transition: { duration: 2, repeat: Infinity, ease: 'easeInOut' }
+          })
+        )
     )
   );
 }
