@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Noir luxury water brand">
+  <meta name="keywords" content="Noir, water, luxury, sparkling, beverages">
+  <title>Noir</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {background-color: #000; color: #fff; font-family: Arial, sans-serif;}
+    .gold {color: #d4af37;}
+    @keyframes marble {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+    .marble-bg {
+      background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,0,0,0.2), rgba(255,255,0,0.2), rgba(0,255,255,0.2), rgba(255,255,255,0.2));
+      background-size: 400% 400%;
+      animation: marble 15s ease infinite;
+      filter: grayscale(0.8) brightness(0.7);
+    }
+    .crack-lines path {
+      stroke: rgba(255,255,255,0.5);
+      stroke-width: 0.5;
+      fill: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <div id="feedback"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" defer></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" defer></script>
+  <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@keyframes marble {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+.marble-bg {
+  background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,0,0,0.2), rgba(255,255,0,0.2), rgba(0,255,255,0.2), rgba(255,255,255,0.2));
+  background-size: 400% 400%;
+  animation: marble 15s ease infinite;
+  filter: grayscale(0.8) brightness(0.7);
+}
+.crack-lines path {
+  stroke: rgba(255,255,255,0.5);
+  stroke-width: 0.5;
+  fill: none;
+}
