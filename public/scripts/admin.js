@@ -40,6 +40,21 @@ function AdminApp() {
     );
   }
 
+ oxh74b-codex/create-production-ready-react-website-for-noir
+  return (
+    React.createElement('div', { className: 'p-6 space-y-4' },
+      React.createElement('h1', { className: 'text-xl font-bold' }, 'Admin Dashboard'),
+      React.createElement('textarea', {
+        className: 'w-full h-64 text-black',
+        value: flavors,
+        onChange: e => setFlavors(e.target.value)
+      }),
+      React.createElement('button', {
+        className: 'bg-gray-800 px-4 py-2 rounded text-white',
+        onClick: saveFlavors
+      }, 'Save')
+    )
+
   return React.createElement('div', { className: 'p-6 space-y-4' },
     React.createElement('h1', { className: 'text-xl font-bold' }, 'Admin Dashboard'),
     React.createElement('textarea', {
@@ -51,6 +66,7 @@ function AdminApp() {
       className: 'bg-gray-800 px-4 py-2 rounded text-white',
       onClick: saveFlavors
     }, 'Save')
+ main
   );
 }
 

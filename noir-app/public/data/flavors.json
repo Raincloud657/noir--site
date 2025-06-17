@@ -1,7 +1,6 @@
 {
   "plans": [
     {
- oxh74b-codex/create-production-ready-react-website-for-noir
       "slug": "just-water",
       "title": "It’s Just Water",
       "short": "4 cans/week of pure water, subscription model.",
@@ -30,18 +29,6 @@
       "aura": "Curiosity turned to ritual. Each week, something comes through. Fear disguised as flavor—and you paid for it.",
       "description": "Every week: three flavors from the vaults of the unknown—and one that’s never been seen before. You’re not just tasting. You’re volunteering.",
       "link": "experimental-flavors.html"
-
-      "title": "It’s Just Water",
-      "description": "4 cans/week of pure water, subscription model."
-    },
-    {
-      "title": "Signature Flavors",
-      "description": "4 cans/week of best-selling flavors, rotating seasonally."
-    },
-    {
-      "title": "Experimental Flavors",
-      "description": "4 cans/week, 3 known, 1 new. Includes feedback form link."
- main
     }
   ]
 }
