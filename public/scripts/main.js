@@ -17,7 +17,7 @@ function CanAnimation({ onEnd }) {
   }, [phase, onEnd]);
 
   return (
-    React.createElement('div', { className: 'flex items-center justify-center h-screen bg-black' },
+    React.createElement('div', { className: 'flex flex-col items-center justify-center h-screen bg-black text-white space-y-4' },
       phase === 'can' ?
         React.createElement(motion.div, {
           initial: { rotate: 0, opacity: 0 },
@@ -35,8 +35,10 @@ function CanAnimation({ onEnd }) {
             className: 'text-white text-7xl',
             animate: { rotate: 360 },
             transition: { duration: 4, repeat: Infinity, ease: 'linear' }
-          }, 'ø'),
-          React.createElement(motion.div, {
+        ),
+      phase === 'symbol' && React.createElement('div', { className: 'text-lg' }, 'Loading...')
+          className: 'bg-black/60 backdrop-blur-md border border-gray-600 rounded-xl p-6 shadow-lg cursor-pointer w-full md:w-1/3',
+          onClick: () => p.link && (window.location.href = p.link)
             className: 'absolute bg-white',
             style: { width: '80%', height: '4px' },
             animate: { x: ['-50%', '50%', '-50%'] },
@@ -84,8 +86,8 @@ function FeedbackForm() {
       React.createElement('input', {
         className: 'w-full p-2 text-black rounded',
         placeholder: 'Name',
-        value: name,
-        onChange: e => setName(e.target.value)
+      !showPlans && React.createElement(CanAnimation, { onEnd: () => setShowPlans(true) }),
+      showPlans && React.createElement('div', { id: 'feedback' },
       }),
       React.createElement('textarea', {
         className: 'w-full h-32 text-black rounded p-2',

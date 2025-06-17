@@ -1,6 +1,6 @@
 # Noir Site
 
- 8bc31p-codex/create-production-ready-react-website-for-noir
+Open `public/index.html` in a browser with internet access. The landing page starts with a spinning can that fades out, then a white `O` with a dash appears with a "Loading..." message. Once complete, three plan cards slide in. Each card is clickable and navigates to its own page (`just-water.html`, `signature-flavors.html`, or `experimental-flavors.html`). Plan data is loaded from `data/flavors.json` and a feedback form stores submissions in `localStorage`.
 This repo contains a lightweight React + Tailwind CSS prototype for the Noir luxury water brand. The site runs entirely from static files with dependencies loaded from public CDNs.
 
 ## Usage
