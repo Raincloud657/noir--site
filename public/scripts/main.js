@@ -52,19 +52,41 @@ function CanAnimation({ onEnd }) {
 
 function Plans({ plans }) {
   return (
-    React.createElement('div', { className: 'flex flex-col md:flex-row justify-center gap-4 p-8' },
+    React.createElement('div', { className: 'flex flex-col md:flex-row justify-center gap-8 p-8' },
       plans.map((p, idx) =>
-        React.createElement('div', {
-          key: idx,
-          className: 'bg-black/60 backdrop-blur-md border border-gray-600 rounded-xl p-6 shadow-lg cursor-pointer w-full md:w-1/3',
-          onClick: () => p.link && (window.location.href = p.link)
-        },
-          React.createElement('h3', { className: 'text-xl font-semibold mb-2' }, p.title),
-          React.createElement('p', { className: 'mb-4' }, p.description),
-          p.title === 'Experimental Flavors' &&
-            React.createElement('a', { href: '#feedback', className: 'underline text-gold-400' }, 'Feedback Form')
+        React.createElement('div', { key: idx, className: 'flex flex-col items-center w-full md:w-1/3 space-y-2' },
+          React.createElement('div', {
+            className: 'w-40 h-40 md:w-48 md:h-48 bg-black border border-gray-700 shadow-inner flex items-center justify-center hover:shadow-xl transition'
+          }),
+          React.createElement('h3', { className: 'text-white font-bold text-center' }, p.title),
+          React.createElement('button', {
+            className: 'bg-gray-800 px-4 py-2 rounded hover:bg-gray-700',
+            onClick: () => p.link && (window.location.href = p.link)
+          }, 'Open')
         )
       )
+    )
+  );
+}
+
+function PlanDetail({ slug }) {
+  const [plan, setPlan] = useState(null);
+  useEffect(() => {
+    fetch('data/flavors.json')
+      .then(res => res.json())
+      .then(data => setPlan(data.plans.find(p => p.slug === slug)));
+  }, [slug]);
+  if (!plan) {
+    return React.createElement('div', { className: 'p-8 text-center' }, 'Loading...');
+  }
+  return (
+    React.createElement('div', { className: 'p-6 space-y-4 max-w-xl mx-auto' },
+      React.createElement('h1', { className: 'text-3xl font-bold text-center' }, plan.title),
+      React.createElement('p', { className: 'italic' }, plan.boxAppearance),
+      React.createElement('p', null, plan.aura),
+      React.createElement('p', null, plan.description),
+      React.createElement('p', { className: 'font-semibold' }, plan.price),
+      React.createElement('a', { href: 'index.html', className: 'underline block text-center' }, 'Back')
     )
   );
 }
@@ -120,4 +142,11 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+const rootEl = document.getElementById('root');
+const planEl = document.getElementById('plan-root');
+if (planEl) {
+  const slug = planEl.dataset.slug;
+  ReactDOM.createRoot(planEl).render(React.createElement(PlanDetail, { slug }));
+} else if (rootEl) {
+  ReactDOM.createRoot(rootEl).render(React.createElement(App));
+}

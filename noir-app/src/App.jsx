@@ -54,18 +54,17 @@ function CanAnimation({ onComplete }) {
 
 function Plans({ plans }) {
   return (
-    <div className="flex flex-col md:flex-row justify-center gap-6 p-8 bg-black text-white">
+    <div className="flex flex-col md:flex-row justify-center gap-8 p-8 bg-black text-white">
       {plans.map((p, idx) => (
-        <div
-          key={idx}
-          className="bg-black/70 backdrop-blur border border-gray-700 rounded-xl p-6 cursor-pointer hover:shadow-lg transition w-full md:w-1/3"
-          onClick={() => p.link && (window.location.href = p.link)}
-        >
-          <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
-          <p className="mb-4">{p.description}</p>
-          {p.title === 'Experimental Flavors' && (
-            <a href="#feedback" className="underline">Feedback Form</a>
-          )}
+        <div key={idx} className="flex flex-col items-center w-full md:w-1/3 space-y-2">
+          <div className="w-40 h-40 md:w-48 md:h-48 bg-black border border-gray-700 shadow-inner hover:shadow-xl transition" />
+          <h3 className="font-bold text-center">{p.title}</h3>
+          <button
+            className="bg-gray-800 px-4 py-2 rounded hover:bg-gray-700"
+            onClick={() => p.link && (window.location.href = p.link)}
+          >
+            Open
+          </button>
         </div>
       ))}
     </div>

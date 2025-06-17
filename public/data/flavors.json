@@ -1,18 +1,33 @@
 {
   "plans": [
     {
+      "slug": "just-water",
       "title": "It’s Just Water",
-      "description": "4 cans/week of pure water, subscription model.",
+      "short": "4 cans/week of pure water, subscription model.",
+      "price": "$12/week",
+      "boxAppearance": "Matte black cube entangled in twisting, spiked vines—living obsidian wrapped tight. Thin streams of condensation drip from the corners. On contact, the vines seem to pulse—guarding something pure.",
+      "aura": "Simplicity under siege. Water as defiance against chaos. For those who see past illusion, who want nothing but what is real.",
+      "description": "It’s not flavored. It’s not complicated. It’s just water—delivered to you weekly in unrelenting black. A sanctuary for the mind. 4 cans. Nothing more.",
       "link": "just-water.html"
     },
     {
+      "slug": "signature-flavors",
       "title": "Signature Flavors",
-      "description": "4 cans/week of best-selling flavors, rotating seasonally.",
+      "short": "4 cans/week of best-selling flavors, rotating seasonally.",
+      "price": "$15/week",
+      "boxAppearance": "Sleek, balanced crate—elegantly locked with blackened chains. Gilded engravings of past flavor symbols—some worn away, some crossed out. One chain pulses faintly with light, responding only to your identity.",
+      "aura": "Timelessness, held under control. Flavors that earned their place, but not without cost. Familiarity with shackles on.",
+      "description": "Four of our most praised flavor signatures, curated by the crowd—bound in place, protected from change. Their popularity earned them chains. Open only if you trust the familiar.",
       "link": "signature-flavors.html"
     },
     {
+      "slug": "experimental-flavors",
       "title": "Experimental Flavors",
-      "description": "4 cans/week, 3 known, 1 new. Includes feedback form link.",
+      "short": "4 cans/week, 3 known, 1 new. Includes feedback form link.",
+      "price": "$18/week",
+      "boxAppearance": "A heavily distorted cube—edges asymmetrical, inconstant in geometry. Etched with glowing glyphs; one face slightly ajar, leaking black mist. A single vine pierces through, wrapped around a severed, blinking eye.",
+      "aura": "Curiosity turned to ritual. Each week, something comes through. Fear disguised as flavor—and you paid for it.",
+      "description": "Every week: three flavors from the vaults of the unknown—and one that’s never been seen before. You’re not just tasting. You’re volunteering.",
       "link": "experimental-flavors.html"
     }
   ]

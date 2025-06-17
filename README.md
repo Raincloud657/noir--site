@@ -4,9 +4,10 @@ This repo contains a React + Tailwind CSS web app for the Noir luxury water bran
 
 ## Usage
 
-Run `npm install` in `noir-app` and then `npm run dev` for development or `npm run build` to produce static files under `noir-app/dist`. The landing page shows a short can animation that fades to a rotating `ø` symbol with a dash. After loading, three plan cards appear and link to their respective pages. Plan data is sourced from `public/data/flavors.json` and a feedback form stores submissions locally.
+Run `npm install` in `noir-app` and then `npm run dev` for development or `npm run build` to produce static files under `noir-app/dist`. The landing page shows a short can animation that fades to a rotating `ø` symbol with a dash. After loading, three loot-box style plan cards appear and link to their respective pages. Plan data is sourced from `public/data/flavors.json` and a feedback form stores submissions locally.
 
 The legacy static prototype still exists in `public/` for reference, including `admin.html` for editing the plan configuration (password `noir`).
+Each plan page reads from the same JSON file, so you can update product info without touching the HTML.
 
 ### Cloudflare Pages
 
