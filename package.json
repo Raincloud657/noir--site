@@ -1,0 +1,8 @@
+{
+  "name": "noir-site",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix noir-app install && npm --prefix noir-app run build && rm -rf dist && cp -r noir-app/dist ./dist",
+    "test": "npm --prefix noir-app test"
+  }
+}
