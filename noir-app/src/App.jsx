@@ -23,8 +23,10 @@ function CanAnimation({ onComplete }) {
           initial={{ rotate: 0, opacity: 0 }}
           animate={{ rotate: 360, opacity: [1, 1, 0] }}
           transition={{ duration: 3 }}
-          className="w-32 h-64 bg-gray-700 rounded-lg shadow-2xl"
-        />
+          className="relative w-32 h-64 rounded-lg bg-gradient-to-b from-gray-400 via-gray-700 to-gray-900 shadow-2xl ring-1 ring-white/30 flex items-center justify-center"
+        >
+          <span className="font-bold">Noir</span>
+        </motion.div>
       ) : (
         <motion.div
           className="relative w-40 h-40 flex items-center justify-center"
@@ -33,11 +35,11 @@ function CanAnimation({ onComplete }) {
           transition={{ duration: 0.5 }}
         >
           <motion.div
-            className="text-white text-7xl"
+            className="text-white font-bold text-7xl"
             animate={{ rotate: 360 }}
             transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
           >
-            ø
+            O
           </motion.div>
           <motion.div
             className="absolute bg-white"

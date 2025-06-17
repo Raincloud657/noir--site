@@ -4,9 +4,11 @@ const { motion } = window['framer-motion'];
 function CanAnimation({ onEnd }) {
   const [phase, setPhase] = useState('can');
 
- oxh74b-codex/create-production-ready-react-website-for-noir
-  // after a short spin, switch to the loading symbol
-
+          className: 'relative w-32 h-64 rounded-lg bg-gradient-to-b from-gray-400 via-gray-700 to-gray-900 shadow-2xl ring-1 ring-white/30 flex items-center justify-center'
+        },
+          React.createElement('span', { className: 'font-bold' }, 'Noir')
+        ) :
+            className: 'text-white font-bold text-7xl',
  main
   useEffect(() => {
     const timer = setTimeout(() => setPhase('symbol'), 3000);
